@@ -4,14 +4,11 @@
 
 _Make a site, make it fast._
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Rarst/laps/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Rarst/laps/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/Rarst/laps/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Rarst/laps/build-status/master)
-[![Code Coverage](https://scrutinizer-ci.com/g/Rarst/laps/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Rarst/laps/?branch=master)
+[![Tests Status](https://github.com/rarst/laps/actions/workflows/tests.yml/badge.svg)](https://github.com/Rarst/laps/actions/workflows/tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/rarst/laps.svg)](https://packagist.org/packages/rarst/laps)
 [![Latest Stable Version](https://img.shields.io/packagist/v/rarst/laps.svg?label=version)](https://packagist.org/packages/rarst/laps)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/rarst/laps.svg)](https://packagist.org/packages/rarst/laps)
-[![PDS Skeleton](https://img.shields.io/badge/pds-skeleton-blue.svg)](https://github.com/php-pds/skeleton)
-[![Download Laps](https://img.shields.io/badge/dynamic/json.svg?label=download&url=https://api.github.com/repos/rarst/laps/releases/latest&query=$.assets%5B0%5D.name)](https://www.rarst.net/download/laps)
+[![Download Laps](https://img.shields.io/badge/download-laps.zip-blue)](https://github.com/Rarst/laps/releases/latest/download/laps.zip)
 
 Laps is a plugin that **shows performance information** about WordPress page load.
 
@@ -38,9 +35,9 @@ API requests need to be authenticated as admin for performance data to be sent. 
 
 ## Installation
 
-| [Composer](https://getcomposer.org/) (recommended) | Release archive |  
-| -------------------------------------------------- | -------- |  
-| `composer require rarst/laps` | [![Download Laps](https://img.shields.io/badge/dynamic/json.svg?label=download&url=https%3A%2F%2Fapi.github.com%2Frepos%2Frarst%2Flaps%2Freleases%2Flatest&query=%24.assets[0].name&style=for-the-badge)](https://www.rarst.net/download/laps) |  
+| [Composer](https://getcomposer.org/) (recommended) | Release archive |
+| -------------------------------------------------- | -------- |
+| `composer require rarst/laps` | [![Download Laps](https://img.shields.io/badge/download-laps.zip-blue?style=for-the-badge)](https://github.com/Rarst/laps/releases/latest/download/laps.zip)|
 
 ## Tests
 

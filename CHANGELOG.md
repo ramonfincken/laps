@@ -6,6 +6,53 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## 3.3.7 - 2022-06-16
+
+### Fixed
+- PHP warning, when accessing OPcache status with `opcache.restrict_api`
+
+## 3.3.6 - 2022-02-08
+
+### Changed
+- updated dependencies (Mustache.php, Pimple)
+- minimum required PHP version 7.2.5 (was de-facto required by dependencies before)
+
+### Fixed
+- deprecation notices on PHP 8.1
+
+## 3.3.5 - 2021-09-28
+
+### Changed
+- reduced maximum Server Timing headers size to 2K (half of possible nginx defaults) 
+
+### Fixed
+- allowed Composer install on PHP 8
+
+## 3.3.4 - 2020-11-16
+
+### Fixed
+- non-ASCII characters in Server Timing headers
+
+## 3.3.3 - 2020-03-11
+
+### Fixed
+- wrong plugin version in header
+
+## 3.3.2 - 2020-03-11
+
+### Changed
+- `Bootable_Provider_Interface` to extend `ServiceProviderInterface`, so that it can be mocked in PHPUnit 9
+
+### Fixed
+- Mustache.php version to resolve issues on PHP 7.4
+- type crash when URL passed to network request filters is invalid
+- large server timing headers breaking proxies
+
+## 3.3.1 - 2019-07-02
+
+### Fixed
+- crash from broken plugin loaded hook input from global
+
 ## 3.3 - 2019-03-27
 
 ### Added

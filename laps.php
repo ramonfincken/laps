@@ -5,10 +5,10 @@ Plugin Name: Laps
 Plugin URI: https://github.com/Rarst/laps
 Description: Light WordPress profiler.
 Author: Andrey “Rarst” Savchenko
-Version: 3.3
+Version: 3.3.7
 Author URI: https://www.rarst.net/
-Text Domain: laps
-Domain Path: /lang
+Requires PHP: 7.1.3
+Update URI: false
 License: MIT
 */
 

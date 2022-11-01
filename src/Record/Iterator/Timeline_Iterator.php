@@ -5,10 +5,11 @@ namespace Rarst\Laps\Record\Iterator;
 
 use Rarst\Laps\Record\Record;
 use Rarst\Laps\Record\Record_Interface;
-use Rarst\Laps\Record\Iterator\Recursive_Record_Iterator;
 
 /**
  * Processes records into sets for display by template.
+ *
+ * @template-implements \Iterator<array>
  *
  * @psalm-suppress PropertyNotSetInConstructor
  */
@@ -60,12 +61,14 @@ class Timeline_Iterator implements \Iterator {
 	}
 
 	/**
+	 * Key is unused and is only type hinted to possible `int` for PHP 8.1 `mixed` type compatibility.
+	 *
 	 * @codeCoverageIgnore
 	 *
-	 * @return void
+	 * @return null
 	 */
-	public function key(): void {
-
+	public function key(): ?int {
+		return null;
 	}
 
 	/**

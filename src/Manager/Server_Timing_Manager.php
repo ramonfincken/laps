@@ -57,14 +57,19 @@ class Server_Timing_Manager {
 		foreach ( $this->collector->get_records() as $record ) {
 			$duration = $record->get_duration() * 1000;
 
-			if ( $duration < 1 ) {
+			if ( $duration < 1 ) { // Filter out less than 1ms events as too noisy.
 				continue;
 			}
 
 			$header .= sprintf( '%s;dur=%.2f;desc="%s", ', $record->get_category(), $duration, $record->get_name() );
+
+			if ( strlen( $header ) > 2000 ) { // 8+KB headers break proxies, 4+KB nginx, so we cut off at 1/2 that limit.
+				break;
+			}
 		}
 
-		header( 'Server-Timing: ' . preg_replace( '/\R/', '', $header ) );
+		// Sanitize to visible US ASCII character range (32-126).
+		header( 'Server-Timing: ' . preg_replace( '/[^\x20-\x7E]/', '', $header ) );
 
 		return $input;
 	}

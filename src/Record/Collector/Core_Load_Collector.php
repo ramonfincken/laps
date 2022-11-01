@@ -36,8 +36,12 @@ class Core_Load_Collector implements Record_Collector_Interface {
 
 		$php = 'PHP Load – ' . PHP_VERSION;
 
-		if ( function_exists( 'opcache_get_status' ) ) {
-			$zend_status = opcache_get_status();
+		if ( $this->opcache_api_available() ) {
+			/**
+			 * This is silenced since it might still emit warning for correct `opcache.resrict_api` configuration.
+			 * @see https://github.com/php/php-src/issues/8799
+			 */
+			$zend_status = @opcache_get_status();
 			$php         .= empty( $zend_status['opcache_enabled'] ) ? '' : ' – OPcache';
 		}
 
@@ -51,5 +55,23 @@ class Core_Load_Collector implements Record_Collector_Interface {
 			new Record( $php, $request_time, $timestart - $request_time, '', 'php' ),
 			new Record( $load, $timestart, $this->timeload - $timestart, '', 'core' ),
 		];
+	}
+
+	private function opcache_api_available(): bool {
+		if ( ! function_exists( 'opcache_get_status' ) ) {
+			return false;
+		}
+
+		$restrict_api = ini_get( 'opcache.restrict_api' );
+
+		if ( ! $restrict_api ) {
+			return true;
+		}
+
+		/**
+		 * The paths aren't normalized, because it is unclear if they are in PHP itself
+		 * and this should rather be false negative to prevent warning emitted.
+		 */
+		return 0 === stripos( __FILE__, $restrict_api );
 	}
 }
